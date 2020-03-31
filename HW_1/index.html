@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 1</title>
+</head>
+<body>
+    <ul id="list-items">
+        <li>Элемент №1</li>
+        <li>Элемент №2</li>
+        <li>Элемент №3</li>
+        <li>Элемент №4</li>
+        <li>Элемент №5</li>
+        <li>Элемент №6</li>
+        <li>Элемент №7</li>
+    </ul>
+    <button onclick="firstElem()">Выбрать первый элемент</button>
+    <button onclick="lastElem()">Выбрать последний элемент</button>
+    <button onclick="nextElem()">Выбрать следующий элемент</button>
+    <button onclick="newElem()">Добавить элемент</button>
+    <button onclick="removeElem()">Удалить элемент</button>
+    <button onclick="preNewElem()">Добавить в начало элемент</button>
+    <script>
+        function firstElem() {
+            var list = document.getElementById("list-items");
+            var item = list.firstElementChild;
+                item.style.color = "blue";
+        }
+        function lastElem() {
+            var list = document.getElementById("list-items");
+            var item = list.lastElementChild;
+                item.style.color = "green";
+        }
+        function nextElem() {
+            var list = document.getElementById("list-items");
+            var item = list.firstElementChild;
+                item = item.nextElementSibling;
+                item.style.color = "red";
+        }
+        function newElem() {
+            var newItem = document.createElement("li");
+                newItem.innerHTML = "Новый элемент";
+                document.getElementById("list-items").append(newItem);
+        }
+        function removeElem() {
+            var list = document.getElementById("list-items");
+            var item = list.lastElementChild;
+                list.removeChild(item);
+        }
+        function preNewElem() {
+            var newItem = document.createElement("li");
+                newItem.innerHTML = "Новый элемент";
+                document.getElementById("list-items").prepend(newItem);
+        }
+    </script>
+</body>
+</html>
