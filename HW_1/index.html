@@ -7,36 +7,62 @@
 </head>
 <body>
     <ul id="list-items">
-        <li>Элемент №1</li>
-        <li>Элемент №2</li>
-        <li>Элемент №3</li>
-        <li>Элемент №4</li>
-        <li>Элемент №5</li>
-        <li>Элемент №6</li>
-        <li>Элемент №7</li>
+        <li>Элемент №</li>
+        <li>Элемент №</li>
+        <li>Элемент №</li>
+        <li>Элемент №</li>
+        <li>Элемент №</li>
+        <li>Элемент №</li>
+        <li>Элемент №</li>
     </ul>
     <button onclick="firstElem()">Выбрать первый элемент</button>
     <button onclick="lastElem()">Выбрать последний элемент</button>
-    <button onclick="nextElem()">Выбрать следующий элемент</button>
+    <button onclick="nextElem()">Следующий элемент</button>
+    <button onclick="prevElem()">Прерыдущий элемент</button>
     <button onclick="newElem()">Добавить элемент</button>
     <button onclick="removeElem()">Удалить элемент</button>
     <button onclick="preNewElem()">Добавить в начало элемент</button>
     <script>
+        var step = 0;
         function firstElem() {
             var list = document.getElementById("list-items");
-            var item = list.firstElementChild;
+            var item = list.firstChild;
+                if (item.nodeType === 3) {
+                    item = item.nextSibling;
+                }
                 item.style.color = "blue";
         }
         function lastElem() {
             var list = document.getElementById("list-items");
-            var item = list.lastElementChild;
+            var item = list.lastChild;
+                if (item.nodeType === 3) {
+                    item = item.previousSibling;
+                }
                 item.style.color = "green";
         }
         function nextElem() {
-            var list = document.getElementById("list-items");
-            var item = list.firstElementChild;
-                item = item.nextElementSibling;
-                item.style.color = "red";
+            if (step == 0) {
+                var list = document.getElementById("list-items");
+                step = list.firstChild;
+                step.style.color = "yellow";
+                return;
+            }   
+            step = step.nextSibling;
+            if (step != 0) {
+                step.style.color = "yellow";
+            }
+        }
+        function prevElem() {
+            if (step == 0) {
+                var list = document.getElementById("list-items");
+                step = list.lastChild;
+                step.style.color = "red";
+                return;
+            }   
+            step = step.previousSibling;
+            if (step != 0) {
+                step.style.color = "red";
+            }
         }
         function newElem() {
             var newItem = document.createElement("li");
