@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Classwork</title>
+    <style type="text/css">
+    	#one {
+    		width: 700px;
+    		height: 700px;
+    		border: 1px solid #000;
+    		float: left;
+    		
+    	}
+    </style>
+</head>
+<body>
+    <div id="one">one</div> 
+    <script>
+    var firstDiv = document.getElementById('one');
+        firstDiv.insertAdjacentHTML('afterend', '<div id="two">two</div>');
+    var two = document.getElementById('two');
+        two.onclick = function() {
+            two.insertAdjacentHTML('beforeBegin', '<div id="two_first">two_first</div>');
+            var twoSecond = document.getElementById('two');
+                twoSecond.id = 'two_second';
+                twoSecond.innerText = 'two_second';
+        }
+
+    // Добавьте после дива с id=one еще один див с текстом two и id=two
+    // На клик по id=two добавьте перед ним див с id - two_first, а див с id=two измените на two_second 
+    </script>
+</body>
+</html>

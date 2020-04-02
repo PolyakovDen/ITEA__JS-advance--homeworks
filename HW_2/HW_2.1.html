@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Id and classes</title>
+    <!-- <style>
+        #id1 {
+            color: red;
+        }
+        div.class1 {
+            color: blue;
+            font-size: 14px;
+            text-decoration: underline;
+        }        
+    </style> -->
+</head>
+<body>
+    <h1 id="id1">Title</h1>
+    <div class="class1" >
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla consequuntur, obcaecati recusandae enim laboriosam eaque, sint incidunt.
+        Perferendis mollitia incidunt blanditiis eveniet, fuga sapiente. Magni dicta maxime fugiat sint soluta?        
+    </div>
+    <script>
+        var id1 = document.getElementById('id1');
+        var class1 = document.querySelector('.class1');
+            id1.style.cssText = 'color: red; margin-top: 10px; background: red;';
+            alert(id1.style.cssText);
+
+            class1.classList.add('newClass');
+            alert(class1.classList);
+            
+            class1.style.cssText = 'color: blue; font-size: 14px; text-decoration: underline;';
+            alert(document.querySelector('.newClass').style.cssText);
+    </script>
+</body>
+</html>

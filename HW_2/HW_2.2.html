@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>All, Elements</title>
+    <!-- <style>
+    * {
+        color: red;
+        text-decoration: none;
+    }
+    p {
+        color: brown;
+    }
+    .class {
+        color: green;
+    }
+    a {
+        font-weight: bold;
+        font-style: italic;
+        text-decoration: underline;
+    }
+    p, 
+    a {
+        text-transform: uppercase;
+    }
+    </style> -->
+</head>
+<body>
+    <h1 class="class1" id="id1">Title</h1>
+    <p class="class">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+        Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
+    </p>
+    <a href="#">Link</a>
+    <script>
+        var allTags = document.getElementsByTagName('*');
+            for (var i = 0; i < allTags.length; i++){
+                allTags[i].style.cssText = 'color: red; text-decoration: none;';
+            }
+
+        var pTag = document.getElementsByTagName('p')[0];
+            pTag.style.cssText = 'color: brown;';
+
+        var pTagNewClass = document.querySelector('.class');
+            pTagNewClass.classList.add('newClass');
+            pTagNewClass.style.cssText = 'color: green';
+            console.log(pTagNewClass.style.cssText);
+
+        var id1 = document.getElementById('id1');
+            id1.style.cssText = 'margin-top: 10px; background: red; color: #000';
+
+        var link = document.getElementsByTagName('a')[0];
+            link.style.cssText = 'font-weight: bold; font-style: italic; text-decoration: underline; color: red;';
+
+        var twoTags = document.querySelectorAll('p, a');
+            for (var a = 0; a < twoTags.length; a++) {
+                twoTags[a].style.cssText = 'text-transform: uppercase;';
+            }
+    </script>
+</body>
+</html>

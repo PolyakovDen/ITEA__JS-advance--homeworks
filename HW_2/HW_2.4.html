@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Prev+Next</title>
+    <!-- <style>
+        div + p {
+            background-color: yellow;
+        }
+        p ~ ul {
+            background: #ff0000;
+        }
+    </style> -->
+</head>
+<body>
+    <h1>Главная</h1>
+
+    <div>
+        <h2>Заголовок</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <span>Строк </span>
+
+    <div>Lorem ipsum dolor sit amet, consectetur adipisicing elit.e minus blanditiis voluptate quaerat reiciendis a magni quos impedit?</div>
+    <ul>
+        <li>Чай</li>
+        <li>Кофе</li>
+        <li>Молоко</li>
+    </ul>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    <ul>
+        <li>Чай</li>
+        <li>Молоко</li>
+        <li>Кофе</li>
+    </ul>
+
+    <h2>Another list</h2>
+    <ul>
+        <li>Кофе</li>
+        <li>Чай</li>
+        <li>Молоко</li>
+    </ul>
+    <script>
+        var pColor = document.querySelector('div + p');
+            pColor.style.color = 'yellow';
+
+        var ulColor = document.querySelectorAll('ul');
+            for (var i = 0; i < ulColor.length; i++) {
+                ulColor[i].style.backgroundColor = 'red';
+            }
+    </script>
+</body>
+</html>
