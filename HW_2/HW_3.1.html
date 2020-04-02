@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Classwork</title>
-    <style type="text/css">
+    <!-- <style type="text/css">
     	#one {
     		width: 700px;
     		height: 700px;
@@ -11,12 +11,13 @@
     		float: left;
     		
     	}
-    </style>
+    </style> -->
 </head>
 <body>
     <div id="one">one</div> 
     <script>
     var firstDiv = document.getElementById('one');
+        firstDiv.style.cssText = 'width: 700px; height: 700px; border: 1px solid #000; float: left;';
         firstDiv.insertAdjacentHTML('afterend', '<div id="two">two</div>');
     var two = document.getElementById('two');
         two.onclick = function() {
