@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <p id="timer"></p>
+        <button onclick="countTimer()">Начать отсчет</button>
+        <button onclick="stopTimer()">Остановить отсчет</button>
+        <button onclick="returnTimer()">Возобновить отсчет</button>
+        <button onclick="resetTimer()">Начать сначала отсчет</button>
+    </div>
+
+    <script>
+        var counter = 0;
+        var timer = document.getElementById('timer');
+        var countup;
+        function countTimer() {
+            countup = setInterval(function () {
+                timer.innerHTML = counter;
+                counter++
+                if (counter === 30) {
+                    timer.innerHTML = "Это конец!";
+                    clearInterval(countup);
+                }
+            }, 1000);
+        };
+        function stopTimer() {
+            clearInterval(countup);
+        }
+        function returnTimer() {
+            countTimer();
+        }
+        function resetTimer() {
+            counter = 0;
+            countTimer();
+        }
+
+        // Для обратного отсчета с 30 до 0
+        
+        // var counter = 30;
+        // var timer = document.getElementById('timer');
+        // var countdown;
+        // function countTimer() {
+        //     countdown = setInterval(function () {
+        //         timer.innerHTML = counter;
+        //         counter--
+        //         if (counter === 0) {
+        //             timer.innerHTML = "Это конец!";
+        //             clearInterval(countdown);
+        //         }
+        //     }, 1000);
+        // };
+    </script>
+</body>
+</html>

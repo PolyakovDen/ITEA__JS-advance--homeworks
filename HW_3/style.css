@@ -1,0 +1,42 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #1a1a1a;
+}
+
+.container {
+    border-radius: 60px;
+    margin: 0 auto;
+    margin-top: 100px;
+    background-color: #212121;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#timer {
+    font-size: 60px;
+    padding-bottom: 20px;
+    color: #b2cccb;
+}
+
+button {
+    border-radius: 10px;
+    background-color: #ffcb6b;
+    color: #c03721;
+    font-size: 17px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 30px;
+    border: none;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
