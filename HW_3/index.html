@@ -19,7 +19,7 @@
         var counter = 0;
         var timer = document.getElementById('timer');
         var countup;
-        function countTimer() {
+        function countTimer () {
             countup = setInterval(function () {
                 timer.innerHTML = counter;
                 counter++
@@ -29,19 +29,19 @@
                 }
             }, 1000);
         };
-        function stopTimer() {
+        function stopTimer () {
             clearInterval(countup);
         }
-        function returnTimer() {
-            countTimer();
+        function returnTimer () {
+            countTimer ();
         }
-        function resetTimer() {
+        function resetTimer () {
             counter = 0;
-            countTimer();
+            countTimer ();
         }
 
         // Для обратного отсчета с 30 до 0
-        
+
         // var counter = 30;
         // var timer = document.getElementById('timer');
         // var countdown;

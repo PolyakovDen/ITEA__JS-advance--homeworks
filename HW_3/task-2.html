@@ -1,0 +1,52 @@
+<!--
+    Запросите у пользователя ввести какую-то фразу.
+    Отобразите каждое отдельное слово в виде списка ul li.
+    Также отобразите первое слово UPPERCASE, а последние 2 с маленькой.
+    Найдите все буквы "а" их количество в модальное окно.
+ -->
+
+ <!DOCTYPE html>
+ <html >
+ <head>
+     <meta charset="UTF-8">
+     <title>Homework</title>
+ </head>
+ <input type="text">
+ <input type="button" value="Разделить по-словам" onclick="test()">
+ <div class="words"></div>
+ <script>
+    function test() {
+         var text = document.querySelector('[type="text"]').value;
+         var word = text.split(" ");
+         var words = document.querySelector(".words");
+         words.innerHTML = "<ul>" + "<li>"+ word.join('<li>') + "</li>" + "</ul>";
+   
+         var ul = words.firstChild;
+         var firstLi = ul.firstChild;
+         firstLi = firstLi.innerHTML.toUpperCase();
+         var firstWord = ul.firstChild;
+         firstWord.innerHTML = firstLi;
+
+         var lastLi = ul.lastChild;
+         lastLi = lastLi.innerHTML.toLowerCase();
+         var lastWord = ul.lastChild;
+         lastWord.innerHTML = lastLi;
+
+         var preLastLi = ul.lastChild.previousSibling;
+         preLastLi = preLastLi.innerHTML.toLowerCase();
+         var preLastWord = ul.lastChild.previousSibling;
+         preLastWord.innerHTML = preLastLi;
+
+         var str = words.innerText;
+         var count = 0;
+         for (let i = 0; i < str.length; i++) {
+            if (str.charAt(i) === 'a' || str.charAt(i) === 'A') {
+                count++;
+            }
+        }
+        alert('В элементах количество символов а или А равно: ' + count);
+         
+    }
+ </script>
+ </body>
+ </html>
