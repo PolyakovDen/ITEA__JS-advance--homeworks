@@ -1,0 +1,59 @@
+<!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 5.2</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: burlywood;
+        }
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        p {
+            margin-top: 20px;
+            font-weight: bold;
+            background-color: goldenrod;
+            width: 300px;
+            text-align: center;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+        p:nth-child(1) {
+            margin-top: 0;
+        }
+        p:hover {
+            width: 450px;
+            text-transform: uppercase;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p>Можешь нажать на меня и удалить!</p>
+        <p>Можешь нажать на меня и удалить!</p>
+        <p>Можешь нажать на меня и удалить!</p>
+        <p>Можешь нажать на меня и удалить!</p>
+        <p>Можешь нажать на меня и удалить!</p>
+    </div>
+    <script>
+        var div = document.querySelector('div');
+        div.addEventListener('click', deleteChild);
+        function deleteChild (e) {
+            var p = e.target;
+            if (p.tagName === 'P') {
+                div.removeChild(p);
+            }
+        }
+    </script>
+</body>
+</html>

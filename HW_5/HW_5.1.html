@@ -1,0 +1,68 @@
+<!--
+Создайте ссылку и див с текстом внутри, который изначально при загрузке страницы будет скрыт.
+При клике на ссылку див появляется, если повторно нажать ссылку див и текст должны пропасть.
+Также создайте кнопку, которая будет отменять выполнение обработчика клика по ссылке.
+ -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+     <meta charset="UTF-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <title>Homework 5.1</title>
+     <style>
+         * {
+             margin: 0;
+             padding: 0;
+         }
+         a {
+             text-decoration: none;
+             text-transform: uppercase;
+             font-size: 20px;
+             font-weight: bold;
+             color: indigo;
+         }
+         div {
+             width: 250px;
+             height: 250px;
+             background-color: brown;
+             color: gold;
+             font-size: 25px;
+         }
+         .hiden {
+             display: none;
+         }
+         button {
+             display: block;
+             width: 150px;
+             height: 50px;
+             font-size: 15px;
+             color: lawngreen;
+             background-color: maroon;
+         }
+     </style>
+ </head>
+ <body>
+     <a href="#" id="link">Показать скрытый div</a>
+     <div class="hiden" id="push-div">Привет, я скрытый div</div>
+     <button id="btn">Удалить обработчик</button>
+
+     <script>
+        window.onload = function() {
+            var link = document.getElementById('link');
+            var pushDiv = document.getElementById('push-div');
+            var button = document.getElementById('btn');
+                
+            link.addEventListener('click', showDiv);
+            function showDiv() {
+                pushDiv.classList.toggle('hiden');
+            }
+
+            button.addEventListener('click', removeEvent);
+            function removeEvent() {
+                link.removeEventListener('click', showDiv);
+            }
+        }
+     </script>
+ </body>
+ </html>

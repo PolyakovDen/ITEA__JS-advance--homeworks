@@ -1,0 +1,85 @@
+<!-- Создайте 5 блоков с текстом. Добавьте в каждый из блоков кнопку для его удаления.
+    Используйте только один обработчик. -->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Homework 5.2-1</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                background-color: burlywood;
+            }
+            div {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            p {
+                margin-top: 20px;
+                font-weight: bold;
+                background-color: goldenrod;
+                width: 300px;
+                text-align: center;
+                padding-top: 20px;
+                padding-bottom: 20px;
+            }
+            p:nth-child(1) {
+                margin-top: 0;
+            }
+            button {
+                display: block;
+                margin: 0 auto;
+                margin-top: 10px;
+                background-color: seagreen;
+                border: none;
+                width: 120px;
+                height: 30px;
+                color:indigo;
+                font-weight: bold;
+            }
+            button:hover {
+                text-transform: uppercase;
+                width: 150px;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <p>
+                Привет, как дела?
+                <button title="Удалить блок!">Плохо, пока!</button>
+            </p>
+            <p>
+                Привет, как дела?
+                <button title="Удалить блок!">Плохо, пока!</button>
+            </p>
+            <p>
+                Привет, как дела?
+                <button title="Удалить блок!">Плохо, пока!</button>
+            </p>
+            <p>
+                Привет, как дела?
+                <button title="Удалить блок!">Плохо, пока!</button>
+            </p>
+            <p>
+                Привет, как дела?
+                <button title="Удалить блок!">Плохо, пока!</button>
+            </p>
+        </div>
+        <script>
+            var div = document.querySelector('div');
+            div.addEventListener('click', deleteChild);
+            function deleteChild (e) {
+               var p = e.target.closest('p');
+               if (e.target.tagName === 'BUTTON') {
+                    div.removeChild(p);
+               }
+            }
+        </script>
+    </body>
+    </html>

@@ -1,0 +1,70 @@
+<!-- Сделайте, чтобы при наведении на span элементы, подсказка сплыва под ними, а не в модальном окне. Используйте addEventListener --> 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background-color: firebrick;
+        }
+        #main-div {
+            background-color: darkslateblue;
+            width: 300px;
+            height: 300px;
+            margin: 0 auto;
+            margin-top: 170px;
+        }
+        span {
+            font-size: 25px;
+        }
+        .tooltip {
+            padding: 10px;
+            border: 1px solid #b3c9ce;
+            border-radius: 4px;
+            text-align: center;
+            font: italic 14px sans-serif;
+            color: #333;
+            background: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div id="main-div">
+        <span data-tooltip="наведите">Наведите</span> 
+        <span data-tooltip="для">Для</span> 
+        <span data-tooltip="подсказки">Подсказки</span>
+    </div>
+    <script>
+        window.onload = function () {
+            var mainDiv = document.getElementById("main-div");
+            var tooltipElem;
+            mainDiv.addEventListener('mouseover', showTooltip);
+            function showTooltip (e) {
+                var target = e.target;
+                var dataToggleId = target.getAttribute('data-tooltip');
+                if (!dataToggleId) {
+                    return;
+                };
+                tooltipElem = document.createElement('div');
+                tooltipElem.className = 'tooltip';
+                tooltipElem.innerHTML = dataToggleId;
+                mainDiv.append(tooltipElem);
+            };
+
+            mainDiv.addEventListener('mouseout', hideTooltip)
+            function hideTooltip (e) {
+                if (tooltipElem) {
+                    tooltipElem.remove();
+                    tooltipElem = null;
+                }
+            }
+        };
+    </script>
+</body>
+</html>
