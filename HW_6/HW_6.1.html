@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 6.1</title>
+    <style>
+        div {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: absolute;
+        }
+        button {
+            width: 180px;
+            height: 50px;
+            margin-top: 300px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>Нажми меня</button>
+    <script>
+        window.addEventListener('load', dragAndDrop);
+        function dragAndDrop() {
+            var div = document.querySelector('div');
+            var button = document.querySelector('button');
+            div.addEventListener("mousedown", moveElement);
+            function moveElement(e) {
+                function divCoords(e) {
+                    div.style.left = e.pageX + 'px';
+                    div.style.top = e.pageY + 'px';
+                } divCoords(e);
+
+                document.onmousemove = function (e) {
+                    divCoords(e);
+                };
+
+                div.onmouseup = function () {
+                    div.onmouseup = null;
+                    document.onmousemove = null;
+                };
+            }
+            button.addEventListener("click", backTop);
+            function backTop() {
+                div.style.left = 0 + "px";
+                div.style.top = 0 + "px";
+            }
+        }
+    </script>
+</body>
+</html>

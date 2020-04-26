@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 6.2</title>
+    <style>
+        div {
+            height: 150px;
+            width: 150px;
+            background-color: red;
+            position: absolute;
+        }
+        button {
+            width: 180px;
+            height: 50px;
+            margin-top: 200px;
+            background-color: gold;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <button>Остановить передвижение</button>
+    <script>
+        window.addEventListener('load', moveDiv);
+        function moveDiv () {
+            var div = document.querySelector('div');
+            var button = document.querySelector('button');
+            var clientWidth = document.documentElement.clientWidth;
+            var divWidth = div.getBoundingClientRect().width;
+            var divCoordLeft = div.getBoundingClientRect().left;
+            var move;
+            
+            div.addEventListener('click', moveElem);
+            function moveElem () {
+                move = setInterval(function () {
+                    var divCoordRight = divCoordLeft + divWidth;
+                    if (divCoordRight <= clientWidth) {
+                        divCoordLeft += 1;
+                        div.style.left = divCoordLeft + 'px';
+                    } else {
+                        divCoordLeft = 0;
+                    }
+                }, 1);
+            
+                button.addEventListener('click', removeMoveElem);
+                function removeMoveElem () {
+                    clearInterval(move);
+                }
+            }
+        
+        }
+    </script>
+</body>
+</html>
