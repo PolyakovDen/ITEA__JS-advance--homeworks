@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HW_7.1</title>
+</head>
+<body>
+    <p>Чтобы узнать день недели 26.04.2020 зайди в Консоль</p>
+    <script>
+        var date = new Date(2020, 3, 25);
+        function getWeekDay(date) {
+            var days = ['7 - воскресенье', '1 - понедельник', '2 - вторник', '3 - среда', '4 - четверг', '5 - пятница', '6 - суббота'];
+            return days[date.getDay()];
+        }
+        var dayWeek = getWeekDay(date);
+        console.log(dayWeek)
+    </script>
+</body>
+</html>

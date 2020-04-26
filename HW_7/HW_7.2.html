@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homework 7.2</title>
+</head>
+<body>
+    <script>
+        class Man {
+            constructor(name) {
+                this.name = name;
+            }
+            walk () {
+                return `${this.name} love walking`;
+            }
+            eat () {
+                return `${this.name} love eat`;
+            }
+            drink () {
+                return `${this.name} love drink water`;
+            }
+        }
+        class Soldier extends Man {
+            shoot () {
+                return `${this.name} love shooting`;
+            }
+        }
+        class Doctor extends Man {
+            cure () {
+                return `${this.name} a good doctor`;
+            }
+        }
+        var man = new Man('Den');
+        console.log(man.drink());
+        var soldier = new Soldier('Brook');
+        console.log(soldier.shoot());
+        var doctor = new Doctor('Shon');
+        console.log(doctor.cure());
+    </script>
+</body>
+</html>
