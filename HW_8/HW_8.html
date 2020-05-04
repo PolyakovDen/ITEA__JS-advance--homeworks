@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Homework</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="login__form">
+        <label for="login" class="login__input">Login:
+            <input id="login" type="text" placeholder="Enter your login">
+        </label>
+        <button id="submit__login">Login</button>
+    </div>
+    <div id="account" class="hidden">
+        <p id="result"> </p>
+        <button id="exit-button">Exit</button>
+    </div>
+
+<script>
+    window.onload = function () {
+
+        window.localStorage.setItem("User1", "Admin");
+        window.localStorage.setItem("User2", "admin");
+        var user1 = window.localStorage.getItem("User1");
+        var user2 = window.localStorage.getItem("User2");
+
+        var login = document.querySelector(".login__form");
+        var name = document.querySelector("#login");
+        var account = document.querySelector("#account");
+        var result = document.querySelector("#result")
+        
+
+        login.addEventListener("click", loginHandler);
+
+        function loginHandler(e) {
+            var target = e.target;
+            if (target.id === "submit__login") {
+                if (name.value === user1 || name.value === user2) {
+                    login.style.display = "none";
+                    account.style.display = "block";
+                    result.innerHTML = `<p> Hello! You're in admin panel. </p>`
+                    document.cookie = "User=" + encodeURIComponent(name.value);
+                    name.value = "";
+                } else {
+                    alert("Wrong login!");
+                    name.value = "";
+                }
+            }
+        }
+
+        account.addEventListener("click", accountHandler);
+
+        function accountHandler(e) {
+            var target = e.target;
+            if (target.id === "exit-button") {
+                login.style.display = "block";
+                account.style.display = "none";
+            }
+        }
+
+    }
+</script>
+</body>
+</html>
